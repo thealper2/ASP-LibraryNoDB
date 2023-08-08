@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model Product
+
+<h1>Add Book</h1>
+
+<form asp-controller="products" asp-action="SaveProduct" method="post">
+    <div class="mb-3">
+        <label asp-for="BookName" class="form-label">Book Name:</label>
+        <input asp-for="BookName" class="form-control" />
+        <span asp-validation-for="BookName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="BookAuthor" class="form-label">Book Author:</label>
+        <input asp-for="BookAuthor" class="form-control" />
+        <span asp-validation-for="BookAuthor" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="BookEdition" class="form-label">Book Edition:</label>
+        <input type="number" asp-for="BookEdition" class="form-control" />
+        <span asp-validation-for="BookEdition" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="BookPrice" class="form-label">Book Price:</label>
+        <input type="number" asp-for="BookPrice" class="form-control" />
+        <span asp-validation-for="BookPrice" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="BookStock" class="form-label">Book Stock:</label>
+        <input type="number" asp-for="BookStock" class="form-control" />
+        <span asp-validation-for="BookStock" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="BookPublishDate" class="form-label">Book Publish Date:</label>
+        <input class="form-control" asp-for="BookPublishDate" />
+        <span asp-validation-for="BookPublishDate" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Add Book</button>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to Library</a>
+</div>
+
+@section Scripts
+{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

@@ -1,0 +1,37 @@
+﻿@{
+	ViewData["Title"] = "Index";
+}
+
+@model List<Product>
+
+<h1>Library</h1>
+<a asp-controller="products" asp-action="add">Add Book</a>
+<table class="table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>BOOK NAME</th>
+			<th>BOOK AUTHOR</th>
+			<th>BOOK EDITION</th>
+			<th>BOOK PRICE</th>
+			<th>BOOK STOCK</th>
+			<th>BOOK PUBLISH DATE</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>@item.Id</td>
+				<td>@item.BookName</td>
+				<td>@item.BookAuthor</td>
+				<td>@item.BookEdition</td>
+				<td>@item.BookPrice</td>
+				<td>@item.BookStock</td>
+				<td>@item.BookPublishDate</td>
+				<td><a asp-controller="products" asp-action="remove" asp-route-id="@item.Id">Sil</a></td>
+				<td><a asp-controller="products" asp-action="update" asp-route-id="@item.Id">Güncelle</a></td>
+			</tr>
+		}
+	</tbody>
+</table>
